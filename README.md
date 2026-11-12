@@ -4,8 +4,8 @@ Prototipo académico del curso **Minería de Datos** (Corporación Universitaria
 
 > ⚠️ Los datos son **sintéticos** y la aplicación es un prototipo académico. No tiene validez clínica y **no sustituye la decisión de un profesional de la salud**.
 
-- **Aplicación pública:** _(pegar aquí la URL de Streamlit Community Cloud)_
-- **Integrantes:** Nelsy Madera _(agregar los nombres completos de los demás integrantes)_
+- **Aplicación pública:** https://app-hrykbxa3fz8qnmv2ipb4qt.streamlit.app/
+- **Integrantes:** Nelsy Madera
 
 ## Datos
 `Dataset_Sintetico_Salud_.xlsx` (hoja `Datos`): 500 registros y 14 columnas; 3 duplicados exactos eliminados → 497 registros. Faltantes en IMC (5), glucosa (6), colesterol (3), actividad física (4) y horas de sueño (7), imputados dentro del pipeline. `ID_Paciente` no se usa como predictor.
@@ -54,10 +54,9 @@ Rangos: edad 18–100, IMC 10–60, glucosa 40–400 mg/dL, presión sistólica 
 |---|---|
 | Herramienta utilizada | Claude (Anthropic) |
 | Propósito | Apoyar la preparación del repositorio: `app.py`, `health_utils.py`, `train_model.py`, `test_consistency.py` y este README. |
-| Prompt principal | _(pegar aquí el prompt completo enviado, tal como lo escribió el grupo)_ |
-| Cómo se verificó la respuesta | _(Completar: ejecución de `train_model.py` con el Excel real y comprobación de que coincide con el notebook; `test_consistency.py`; prueba de la app con `streamlit run app.py` y comparación de un registro de prueba con el notebook.)_ |
-| Problemas identificados | En la primera versión el asistente no tuvo acceso al Excel; luego `train_model.py` y `test_consistency.py` se ejecutaron con el Excel real y reprodujeron las métricas del notebook (accuracy 0,856; F1 macro 0,859; CV 0,837 ± 0,044). Pendiente: la interfaz de `app.py` no se ha ejecutado con Streamlit real ni publicado en Streamlit Cloud. Además, 4 registros de prueba tienen faltantes; se excluyeron del selector de ejemplos porque la app no imputa y no coincidirían con el notebook. _(Agregar otros problemas que encuentre el grupo.)_ |
-| Ajustes realizados | _(Completar: qué corrigió, eliminó o modificó el grupo.)_ |
-| Decisión final | _(El grupo debe indicar qué conservó y por qué.)_ |
+| Prompt principal | Paso a paso explicado para subir y crear una app con estos datos en streamlit|
+| Cómo se verificó la respuesta | Se ejecutó train_model.py con el Excel real y las métricas coincidieron con las del notebook (accuracy 0,856; F1 macro 0,859; validación cruzada 0,837 ± 0,044). Se ejecutó test_consistency.py (caso normal, 7 entradas inválidas y un registro de prueba). En la app desplegada se probó un caso normal (Bajo, 56,3 %), el registro 314 del conjunto de prueba (Medio, 86,5 %, igual que el notebook) y una edad de 90 años, que generó la advertencia de valor fuera del rango de entrenamiento. [Agrega aquí qué pasó con la prueba de edad 150 o similar.]
+| Problemas identificados | La primera versión del código se escribió sin acceso al Excel y no se había probado con los datos reales ni en Streamlit. Los registros de prueba con valores faltantes no coincidían con el notebook, porque la app usa valores por defecto en vez de la imputación del pipeline. Al subir el proyecto, los archivos quedaron anidados y el Excel en un lugar incorrecto.
+| Ajustes realizados | Se excluyeron del selector los registros de prueba con faltantes. Se fijó scikit-learn==1.9.1 en requirements.txt. Se reorganizaron los archivos en el repositorio |
+| Decisión final | Se conservó la regresión logística, que superó al árbol de decisión en la prueba y en la validación cruzada. No se modificó el modelo del notebook. Se mantiene la advertencia de que el desempeño puede estar inflado si Nivel_Riesgo se construyó con variables clínicas. |
 
-Todos los integrantes deben comprender el código entregado.
