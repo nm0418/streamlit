@@ -1,0 +1,95 @@
+{
+  "test": {
+    "accuracy": 0.856,
+    "precision_macro": 0.8582199546485261,
+    "recall_macro": 0.8619608519940746,
+    "f1_macro": 0.8591526710212634
+  },
+  "per_class": {
+    "Bajo": {
+      "precision": 0.925,
+      "recall": 0.8604651162790697,
+      "f1": 0.891566265060241,
+      "support": 43
+    },
+    "Medio": {
+      "precision": 0.8163265306122449,
+      "recall": 0.8163265306122449,
+      "f1": 0.8163265306122449,
+      "support": 49
+    },
+    "Alto": {
+      "precision": 0.8333333333333334,
+      "recall": 0.9090909090909091,
+      "f1": 0.8695652173913043,
+      "support": 33
+    }
+  },
+  "confusion": [
+    [
+      37,
+      6,
+      0
+    ],
+    [
+      3,
+      40,
+      6
+    ],
+    [
+      0,
+      3,
+      30
+    ]
+  ],
+  "cv_f1_macro": {
+    "mean": 0.8372520271036766,
+    "std": 0.0442885469956083
+  },
+  "n_total": 497,
+  "n_train": 372,
+  "n_test": 125,
+  "class_counts": {
+    "Bajo": 169,
+    "Medio": 196,
+    "Alto": 132
+  },
+  "train_ranges": {
+    "Edad": [
+      18.0,
+      85.0
+    ],
+    "IMC": [
+      17.0,
+      58.2
+    ],
+    "Glucosa_mg_dL": [
+      62.0,
+      336.0
+    ],
+    "Presion_Sistolica_mmHg": [
+      85.0,
+      226.0
+    ],
+    "Colesterol_mg_dL": [
+      115.0,
+      266.0
+    ],
+    "Horas_Sueno": [
+      4.3,
+      9.8
+    ],
+    "Nivel_Estres": [
+      1.0,
+      10.0
+    ],
+    "Consultas_Medicas": [
+      0.0,
+      9.0
+    ],
+    "Mes_Numero": [
+      1.0,
+      12.0
+    ]
+  }
+}

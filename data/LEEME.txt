@@ -1,0 +1,4 @@
+Coloca aquí el archivo Dataset_Sintetico_Salud_.xlsx (hoja "Datos"), el mismo que usa el notebook.
+Luego ejecuta, desde la carpeta raíz del proyecto:   python train_model.py
+Ese comando genera: data/datos_limpios.csv, data/test_set.csv, models/pipeline_salud.joblib y models/metrics.json.
+Sube todos esos archivos al repositorio de GitHub (el conjunto es sintético; no contiene datos personales).
